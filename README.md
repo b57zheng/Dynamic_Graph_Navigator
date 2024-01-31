@@ -1,20 +1,12 @@
 Class UMLs
 ![image](https://github.com/b57zheng/Graphs_for_Navigation/assets/98293562/1f38f3b3-724a-44b3-b3df-a4f320a22fab)
 
-
-
-
-
-
-
-
-
-
 Edge Class:
 -	Class Design: 
 The design of the Edge class is pivotal for representing connections within a graph structure. A major design decision is the incorporation of both directional attributes and dynamic factors like traffic. The class also provides methods to retrieve and update edge attributes, ensuring the graph can be efficiently navigated and modified in response to changing conditions.
 -	Constructor & Destructor: 
 The overloaded constructor was designed to support the creation of edges. The destructor was chosen to be a default destructor since there is no dynamic allocation of memories to be released.
+
 Node Class:
 -	Class Designs:
 The Node class in the graph structure is designed for efficiency and adaptability. It employs dynamic allocation for edges, allowing for flexible edge management as the graph changes. The class uses lazy initialization and automatic resizing to handle varying graph sizes efficiently. 
@@ -32,6 +24,7 @@ This function removes an edge connecting to a specific node. This function is a 
 This function locates a specific edge connected to a node. This function is a helper function to support the update method in the Graph class, where the adjustment factor of a specific edge is needed.
 -	Function: Resize_edge_list
 Expands the array's capacity, doubling its size. This is a critical design for handling increasing paths without running out of space, crucial for large graphs.
+
 Path Class:
 -	Class Designs:
 The Path class was designed to support Dijkstra’s algorithm implementation. It efficiently represents a path in the graph, containing a sequence of nodes and the associated path weight. The Path class’s primary role is to facilitate the tracking of the shortest paths during the execution of Dijkstra’s algorithm.
@@ -39,6 +32,7 @@ The Path class was designed to support Dijkstra’s algorithm implementation. It
 The class has two constructors: one for initializing a new path with a single node and another for extending an existing path with additional nodes, supporting the progressive nature of Dijkstra’s algorithms. The destructor deallocates memories allocated to path array, avoiding leaks.
 -	Function: add_node_to_path
 This function adds node name to the end of the path array. This function was designed as a helper function for the Dijkstra’s algorithm implemented for lowest and path method in the Graph class.
+
 Path_array Class:
 -	Class Designs:
 The Path_array class is designed to manage and manipulate a collection of Path objects in Dijkstra's graph algorithms. The significant design decision is to use a dynamically allocated array of pointers to Path objects, enabling the class to handle an evolving set of paths during graph traversal. 
@@ -56,6 +50,7 @@ Finds and returns the path with the minimum weight in the array of pointers poin
 Deletes a path from the array but doesn't deallocate it, used for rearranging paths during graph traversal.
 -	Function: Last_node_in_path_array 
 Checks if a given node is the last node in any of the paths. This function is key in preventing revisits to nodes, enhancing efficiency in pathfinding tasks.
+
 Graph Class:
 -	Class Design:
 The Graph class is designed as the central structure for managing a network of nodes and edges, crucial for representing and manipulating graph data. Key functionalities include graph traversal and pathfinding, enabled by integrating auxiliary classes like Path and Path_array. The class also incorporates error handling through the illegal_exception class ensures stability against invalid inputs.
@@ -78,7 +73,6 @@ This function reads TRAFFIC commands data from a file to update the adjustment f
 -	Function: load
 This function reads INSERT commands data from a file to construct the graph network.
 -	Function: resize_node_list
-
 Expands the array's capacity, doubling its size. This is a critical design for handling increasing paths without running out of space, crucial for large graphs.
 
 -	Runtime Analysis: Dijkstra’s algorithm 
@@ -88,8 +82,7 @@ o	For each min weight path’s end node, expand all edges. In the worst case, th
 o	Total runtime for extraction is O(|log(V)|)
 o	Total runtime for edge expansion is O(|E))
 o	Hence, the total runtime is O(|E|log|V|).
+
 illegal_exception Class:
 -	Class Design:
 This class was designed as a custom exception for the graph implementation, inherits from the standard std::exception in C++. By overriding the what() method, it delivers pre-specified error information.
-
-

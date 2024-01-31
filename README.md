@@ -1,4 +1,5 @@
-Class UMLs
+Class UMLs:
+
 ![image](https://github.com/b57zheng/Graphs_for_Navigation/assets/98293562/1f38f3b3-724a-44b3-b3df-a4f320a22fab)
 
 Graph Class:

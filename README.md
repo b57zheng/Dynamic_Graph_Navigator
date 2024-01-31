@@ -1,6 +1,38 @@
 Class UMLs
 ![image](https://github.com/b57zheng/Graphs_for_Navigation/assets/98293562/1f38f3b3-724a-44b3-b3df-a4f320a22fab)
 
+Graph Class:
+-	Class Design:
+The Graph class is designed as the central structure for managing a network of nodes and edges, crucial for representing and manipulating graph data. Key functionalities include graph traversal and pathfinding, enabled by integrating auxiliary classes like Path and Path_array. The class also incorporates error handling through the illegal_exception class ensures stability against invalid inputs.
+-	Constructor & Destructor: 
+constructors initialize class attributes and allocate necessary memory, ensuring objects begin in a consistent state. Destructors, conversely, are key for memory management, safely deallocating resources to prevent leaks.
+-	Function: insert 
+This function creates an edge between two nodes (a and b) with distance 'd' and speed limit 's'. It's essential for constructing the graph, as it builds the connections that define the network. If a node doesn't exist, it will be created.
+-	Function: print
+This function prints the edges connected to node 'a', providing a visual representation of a node's connections within the graph.
+-	Function: delete_node
+This function removes a node and all its connected edges from the graph. 
+-	Function: path 
+This function uses Dijkstra’s algorithm to find the shortest path between nodes 'a' and 'b'. It's vital for route finding within the graph.
+-	Function: traffic
+This function updates the adjustment factor 'A' on the edge between nodes 'a' and 'b'. It allows the graph to reflect dynamic changes, like traffic conditions, affecting edge traversal weight.
+-	Function: lowest
+This function uses Dijkstra’s algorithm to find the path with the lowest cost between nodes 'a' and 'b'. It's key for optimization tasks, like finding the most efficient route. 
+-	Function: update
+This function reads TRAFFIC commands data from a file to update the adjustment factor 'A'. 
+-	Function: load
+This function reads INSERT commands data from a file to construct the graph network.
+-	Function: resize_node_list
+Expands the array's capacity, doubling its size. This is a critical design for handling increasing paths without running out of space, crucial for large graphs.
+
+Runtime Analysis: Dijkstra’s algorithm 
+- The algorithm initializes the first note in the path array with weight 0. This operation is O(1).
+- In each iteration, the algorithm extracts the node with min weight from the path array. In the worst case, every node is extracted once. Hence, the operation is O(|V|).
+- For each min weight path’s end node, expand all edges. In the worst case, this operation repeats for every edge in the graph. Hence, the operation is O(|E|).
+- Total runtime for extraction is O(|log(V)|)
+- Total runtime for edge expansion is O(|E))
+- Hence, the total runtime is O(|E|log|V|).
+  
 Edge Class:
 -	Class Design: 
 The design of the Edge class is pivotal for representing connections within a graph structure. A major design decision is the incorporation of both directional attributes and dynamic factors like traffic. The class also provides methods to retrieve and update edge attributes, ensuring the graph can be efficiently navigated and modified in response to changing conditions.
@@ -50,38 +82,6 @@ Finds and returns the path with the minimum weight in the array of pointers poin
 Deletes a path from the array but doesn't deallocate it, used for rearranging paths during graph traversal.
 -	Function: Last_node_in_path_array 
 Checks if a given node is the last node in any of the paths. This function is key in preventing revisits to nodes, enhancing efficiency in pathfinding tasks.
-
-Graph Class:
--	Class Design:
-The Graph class is designed as the central structure for managing a network of nodes and edges, crucial for representing and manipulating graph data. Key functionalities include graph traversal and pathfinding, enabled by integrating auxiliary classes like Path and Path_array. The class also incorporates error handling through the illegal_exception class ensures stability against invalid inputs.
--	Constructor & Destructor: 
-constructors initialize class attributes and allocate necessary memory, ensuring objects begin in a consistent state. Destructors, conversely, are key for memory management, safely deallocating resources to prevent leaks.
--	Function: insert 
-This function creates an edge between two nodes (a and b) with distance 'd' and speed limit 's'. It's essential for constructing the graph, as it builds the connections that define the network. If a node doesn't exist, it will be created.
--	Function: print
-This function prints the edges connected to node 'a', providing a visual representation of a node's connections within the graph.
--	Function: delete_node
-This function removes a node and all its connected edges from the graph. 
--	Function: path 
-This function uses Dijkstra’s algorithm to find the shortest path between nodes 'a' and 'b'. It's vital for route finding within the graph.
--	Function: traffic
-This function updates the adjustment factor 'A' on the edge between nodes 'a' and 'b'. It allows the graph to reflect dynamic changes, like traffic conditions, affecting edge traversal weight.
--	Function: lowest
-This function uses Dijkstra’s algorithm to find the path with the lowest cost between nodes 'a' and 'b'. It's key for optimization tasks, like finding the most efficient route. 
--	Function: update
-This function reads TRAFFIC commands data from a file to update the adjustment factor 'A'. 
--	Function: load
-This function reads INSERT commands data from a file to construct the graph network.
--	Function: resize_node_list
-Expands the array's capacity, doubling its size. This is a critical design for handling increasing paths without running out of space, crucial for large graphs.
-
--	Runtime Analysis: Dijkstra’s algorithm 
-o	The algorithm initializes the first note in the path array with weight 0. This operation is O(1).
-o	In each iteration, the algorithm extracts the node with min weight from the path array. In the worst case, every node is extracted once. Hence, the operation is O(|V|).
-o	For each min weight path’s end node, expand all edges. In the worst case, this operation repeats for every edge in the graph. Hence, the operation is O(|E|).
-o	Total runtime for extraction is O(|log(V)|)
-o	Total runtime for edge expansion is O(|E))
-o	Hence, the total runtime is O(|E|log|V|).
 
 illegal_exception Class:
 -	Class Design:

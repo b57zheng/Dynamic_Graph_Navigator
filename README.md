@@ -32,7 +32,25 @@ Runtime Analysis: Dijkstra’s algorithm
 - Total runtime for extraction is O(|log(V)|)
 - Total runtime for edge expansion is O(|E))
 - Hence, the total runtime is O(|E|log|V|).
-  
+
+Path_array Class:
+-	Class Designs:
+The Path_array class is designed to manage and manipulate a collection of Path objects in Dijkstra's graph algorithms. The significant design decision is to use a dynamically allocated array of pointers to Path objects, enabling the class to handle an evolving set of paths during graph traversal. 
+-	Constructor & Destructor:
+The constructor initializes the array. The destructor deallocates any Path objects stored in the array and then frees the array itself, preventing memory leaks.
+-	Function: insert
+ Adds a new path to the array. It checks if the array needs resizing before insertion, ensuring dynamic adaptability to the number of paths.
+-	Function: resize 
+Expands the array's capacity, doubling its size. This is a critical design for handling increasing paths without running out of space, crucial for large graphs.
+-	Function: delete_path 
+Removes a specified path from the array. It ensures memory is freed properly for the removed path, maintaining efficient memory usage.
+-	Function: Min_weight_path
+Finds and returns the path with the minimum weight in the array of pointers pointing to the paths. This function is central to implementing Dijkstra's algorithm for shortest paths.
+-	Function: Remove_path 
+Deletes a path from the array but doesn't deallocate it, used for rearranging paths during graph traversal.
+-	Function: Last_node_in_path_array 
+Checks if a given node is the last node in any of the paths. This function is key in preventing revisits to nodes, enhancing efficiency in pathfinding tasks.
+
 Edge Class:
 -	Class Design: 
 The design of the Edge class is pivotal for representing connections within a graph structure. A major design decision is the incorporation of both directional attributes and dynamic factors like traffic. The class also provides methods to retrieve and update edge attributes, ensuring the graph can be efficiently navigated and modified in response to changing conditions.
@@ -64,24 +82,6 @@ The Path class was designed to support Dijkstra’s algorithm implementation. It
 The class has two constructors: one for initializing a new path with a single node and another for extending an existing path with additional nodes, supporting the progressive nature of Dijkstra’s algorithms. The destructor deallocates memories allocated to path array, avoiding leaks.
 -	Function: add_node_to_path
 This function adds node name to the end of the path array. This function was designed as a helper function for the Dijkstra’s algorithm implemented for lowest and path method in the Graph class.
-
-Path_array Class:
--	Class Designs:
-The Path_array class is designed to manage and manipulate a collection of Path objects in Dijkstra's graph algorithms. The significant design decision is to use a dynamically allocated array of pointers to Path objects, enabling the class to handle an evolving set of paths during graph traversal. 
--	Constructor & Destructor:
-The constructor initializes the array. The destructor deallocates any Path objects stored in the array and then frees the array itself, preventing memory leaks.
--	Function: insert
- Adds a new path to the array. It checks if the array needs resizing before insertion, ensuring dynamic adaptability to the number of paths.
--	Function: resize 
-Expands the array's capacity, doubling its size. This is a critical design for handling increasing paths without running out of space, crucial for large graphs.
--	Function: delete_path 
-Removes a specified path from the array. It ensures memory is freed properly for the removed path, maintaining efficient memory usage.
--	Function: Min_weight_path
-Finds and returns the path with the minimum weight in the array of pointers pointing to the paths. This function is central to implementing Dijkstra's algorithm for shortest paths.
--	Function: Remove_path 
-Deletes a path from the array but doesn't deallocate it, used for rearranging paths during graph traversal.
--	Function: Last_node_in_path_array 
-Checks if a given node is the last node in any of the paths. This function is key in preventing revisits to nodes, enhancing efficiency in pathfinding tasks.
 
 illegal_exception Class:
 -	Class Design:

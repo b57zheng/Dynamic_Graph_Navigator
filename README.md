@@ -17,7 +17,7 @@ This function uses Dijkstra’s algorithm to find the shortest path between node
 -	Function: traffic
 This function updates the adjustment factor 'A' on the edge between nodes 'a' and 'b'. It allows the graph to reflect dynamic changes, like traffic conditions, affecting edge traversal weight.
 -	Function: lowest
-This function uses Dijkstra’s algorithm to find the path with the lowest cost between nodes 'a' and 'b'. It's key for optimization tasks, like finding the most efficient route. 
+This function uses Dijkstra’s algorithm to find the path with the lowest cost between nodes. It's key for optimization tasks, like finding the most efficient route. 
 -	Function: update
 This function reads TRAFFIC commands data from a file to update the adjustment factor 'A'. 
 -	Function: load

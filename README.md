@@ -1,4 +1,3 @@
-
 ---
 
 # Graph Path Finder

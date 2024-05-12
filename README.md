@@ -13,6 +13,7 @@ Graph Path Finder is a C++ project designed to efficiently manage graph operatio
 - **Real-time Traffic Updates**: Adjust the weight of edges in real-time to simulate changing traffic conditions.
 - **Robust Error Handling**: Implements custom exception handling to manage and report errors effectively.
 - **Scalable Architecture**: Supports operations on large graphs with potentially up to 500,000 nodes.
+- **No STL Libraries**: Developed without the use of Standard Template Library (STL) to meet project constraints.
 
 ## Getting Started
 
